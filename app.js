@@ -13,7 +13,7 @@ const winsEl = document.getElementById('wins');
 
 let correctGuesses = 0;
 let totalGuesses = 0;
-let incorrectGuess = 0;
+let incorrectGuesses = 0;
 
 shedButton.addEventListener('click', () => {
     // get a random item to call the 'correct spot'
@@ -62,7 +62,11 @@ function handleGuess(userGuess, correctSpot) {
     // then if the user guess is correct, increment the correct guesses
     if (userGuess === correctSpot) {
         correctGuesses++;
-        console.log(correctGuesses);
+    } else {
+        incorrectGuesses++;
     }
     // update the DOM to show the new value of wins, losses and total guesses to the user
+    totalEl.textContent = totalGuesses;
+    lossesEl.textContent = incorrectGuesses;
+    winsEl.textContent = correctGuesses;
 }
