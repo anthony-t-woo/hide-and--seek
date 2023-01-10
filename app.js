@@ -68,10 +68,10 @@ function getRandomHidingSpot() {
     const correctSpot = hidingPlaces[index];
     // return that random hiding place string
 
-    if (correctSpot == 'tree') {
+    if (correctSpot === 'tree') {
         hidInTree++;
         hidInTreeEl.textContent = hidInTree;
-    } else if (correctSpot == 'boulder') {
+    } else if (correctSpot === 'boulder') {
         hidUnderBoulder++;
         hidUnderBoulderEl.textContent = hidUnderBoulder;
     } else {
