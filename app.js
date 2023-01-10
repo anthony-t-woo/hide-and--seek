@@ -15,6 +15,10 @@ const treeGuessesEl = document.getElementById('tree-guesses');
 const boulderGuessesEl = document.getElementById('boulder-guesses');
 const shedGuessesEl = document.getElementById('shed-guesses');
 
+const hidInTreeEl = document.getElementById('hid-in-tree');
+const hidUnderBoulderEl = document.getElementById('hid-under-boulder');
+const hidInShedEl = document.getElementById('hid-in-shed');
+
 let correctGuesses = 0;
 let totalGuesses = 0;
 let incorrectGuesses = 0;
@@ -22,6 +26,10 @@ let incorrectGuesses = 0;
 let treeGuesses = 0;
 let boulderGuesses = 0;
 let shedGuesses = 0;
+
+let hidInTree = 0;
+let hidUnderBoulder = 0;
+let hidInShed = 0;
 
 shedButton.addEventListener('click', () => {
     shedGuesses++;
@@ -59,11 +67,23 @@ function getRandomHidingSpot() {
     // use the random index above and the array of hidingPlaces to get a random hiding place string
     const correctSpot = hidingPlaces[index];
     // return that random hiding place string
+
+    if (correctSpot == 'tree') {
+        hidInTree++;
+        hidInTreeEl.textContent = hidInTree;
+    } else if (correctSpot == 'boulder') {
+        hidUnderBoulder++;
+        hidUnderBoulderEl.textContent = hidUnderBoulder;
+    } else {
+        hidInShed++;
+        hidInShedEl.textContent = hidInShed;
+    }
+
     return correctSpot;
 }
 
 function handleGuess(userGuess, correctSpot) {
-    // first, right after clicking, we need to remove the emoiji face from the previous hiding place that way we don't end up with more than one emoji face
+    // first, right after clicking, we need to remove the emoji face from the previous hiding place that way we don't end up with more than one emoji face
     // we can do that by removing the .face class from all containers
     shedContainer.classList.remove('face');
     treeContainer.classList.remove('face');

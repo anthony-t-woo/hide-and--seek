@@ -132,9 +132,13 @@ footer {
     font-size: 8rem;
     content: '😃';
     position: absolute;
-    margin-bottom: 100px;
+    margin-bottom: 300px;
 }
 
 /* button {
     margin-top: 40px;
 } */
+
+h2 {
+    margin-bottom: 100px;
+}
